@@ -20,7 +20,7 @@ onScroll();
 
 // Fade sections in as they scroll into view
 const revealTargets = document.querySelectorAll(
-  ".pill, .benefit, .banner, .prism, .human-design, .plan, .about__photo, .stats, .contact__photo"
+  ".pill, .prism, .human-design, .plan, .about__photo, .stats, .contact__photo"
 );
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(

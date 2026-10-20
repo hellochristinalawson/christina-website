@@ -16,6 +16,12 @@
 </head>
 <body>
 
+  <!-- One arrow shape, reused by every outbound / onward link -->
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <symbol id="i-arrow-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+  </svg>
+
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a href="#top" class="logo">Christina Lawson</a>
@@ -37,17 +43,17 @@
     <section class="hero">
       <div class="container hero__inner">
         <div class="hero__copy">
-          <h1>The Creative Perspective</h1>
+          <h1><span>The</span> <span>Creative</span> <span>Perspective</span></h1>
           <p class="lead">For ambitious creatives looking for clarity, direction and practical support.</p>
           <div class="hero__cta">
-            <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn">Book my free 15-min call <span aria-hidden="true">↗</span></a>
+            <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn">Book my free 15-min call <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-out"/></svg></a>
             <a href="#services" class="btn btn--ghost">Ways to work together</a>
           </div>
-          <p class="hero__role">Creative Leadership &amp; Personal Development Mentor | Christina Lawson</p>
+          <p class="hero__role">Creative Leadership &amp; Personal Development Mentor</p>
         </div>
         <div class="hero__visual">
-          <img class="hero__photo" src="images/christina-hero.png" alt="Christina Lawson sitting on a chair, smiling">
-          <img class="hero__matcha" src="images/matcha.png" alt="">
+          <img class="hero__photo" src="images/christina-hero.png" width="867" height="1300" fetchpriority="high" decoding="async" alt="Christina Lawson sitting on a chair, smiling">
+          <img class="hero__matcha" src="images/matcha.png" width="221" height="400" decoding="async" alt="">
           <div class="bubble" aria-hidden="true">G'day!</div>
         </div>
       </div>
@@ -86,35 +92,46 @@
     </section>
 
     <!-- WHAT MENTORING OFFERS -->
-    <section class="section section--white">
+    <section class="section section--white" aria-labelledby="offer-title">
       <div class="container">
-        <p class="kicker">What can mentoring offer you?</p>
-        <h2>Sometimes, you just need space to think.</h2>
-        <p class="intro">Even the most capable people benefit from a fresh perspective. Mentoring gives you dedicated time to focus on yourself, explore your ideas and gain a different perspective. Whether you're navigating a challenge, considering your next steps or working towards a goal, having someone in your corner can help you move forward with greater clarity and intention.</p>
-        <hr class="rule">
-        <div class="benefits">
-          <div class="benefit">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.4 1 3.9 2 5v6h8v-3h2a2 2 0 0 0 2-2v-3l2-1-2-3a7 7 0 0 0-7-6z"/><path d="M11 13V9m0 2c-1.5 0-2.5-1-2.5-2.5M11 11c1.5 0 2.5-1 2.5-2.5"/></svg>
-            <h3>Dedicated Space to Reflect</h3>
-            <p>Time away from everyday demands to focus on your own thoughts, priorities and personal development.</p>
-          </div>
-          <div class="benefit">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="16" r="4"/><circle cx="18" cy="16" r="4"/><path d="M10 16h4M3 13l2-8h3l1 7m12 1-2-8h-3l-1 7"/></svg>
-            <h3>A Fresh Perspective</h3>
-            <p>Gain new insights, challenge your assumptions and help you see things from another angle.</p>
-          </div>
-          <div class="benefit">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>
-            <h3>Greater Self Awareness</h3>
-            <p>An opportunity to better understand your strengths, motivations, tendencies, and what matters most to you.</p>
-          </div>
-          <div class="benefit">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7 .9L21 7"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></svg>
-            <h3>Practical Support &amp; Accountability</h3>
-            <p>Turn ideas into achievable steps, with structure, encouragement and ongoing support.</p>
-          </div>
+        <div class="offer">
+          <header class="section__head offer__head">
+            <h2 class="title" id="offer-title">What can mentoring offer you?</h2>
+            <p class="section__lead">Sometimes, you just need space to think.</p>
+            <p class="intro">Even the most capable people benefit from a fresh perspective. Mentoring gives you dedicated time to focus on yourself, explore your ideas and gain a different perspective. Whether you're navigating a challenge, considering your next steps or working towards a goal, having someone in your corner can help you move forward with greater clarity and intention.</p>
+          </header>
+          <ul class="benefits">
+            <li class="benefit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.4 1 3.9 2 5v6h8v-3h2a2 2 0 0 0 2-2v-3l2-1-2-3a7 7 0 0 0-7-6z"/><path d="M11 13V9m0 2c-1.5 0-2.5-1-2.5-2.5M11 11c1.5 0 2.5-1 2.5-2.5"/></svg>
+              <div>
+                <h3>Dedicated Space to Reflect</h3>
+                <p>Time away from everyday demands to focus on your own thoughts, priorities and personal development.</p>
+              </div>
+            </li>
+            <li class="benefit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="16" r="4"/><circle cx="18" cy="16" r="4"/><path d="M10 16h4M3 13l2-8h3l1 7m12 1-2-8h-3l-1 7"/></svg>
+              <div>
+                <h3>A Fresh Perspective</h3>
+                <p>Gain new insights, challenge your assumptions and help you see things from another angle.</p>
+              </div>
+            </li>
+            <li class="benefit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>
+              <div>
+                <h3>Greater Self Awareness</h3>
+                <p>An opportunity to better understand your strengths, motivations, tendencies, and what matters most to you.</p>
+              </div>
+            </li>
+            <li class="benefit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7 .9L21 7"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></svg>
+              <div>
+                <h3>Practical Support &amp; Accountability</h3>
+                <p>Turn ideas into achievable steps, with structure, encouragement and ongoing support.</p>
+              </div>
+            </li>
+          </ul>
         </div>
-        <a href="#services" class="banner">See the potential? An experienced sounding board can help you take the next step. <span aria-hidden="true">→</span></a>
+        <a href="#services" class="banner">See the potential? An experienced sounding board can help you take the next step. <svg class="banner__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
       </div>
     </section>
 
