@@ -258,8 +258,12 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round
 .pill--blue .pill__icon { color: var(--sky); }
 
 /* "Which of these sounds like you?": with JS, the four titles become tabs and the chosen one opens below */
+/* Light blue band so this section separates from the cream hero and white section below */
+#who { background: var(--mist); }
 #who .intro { max-width: none; }
-.who__hint { margin: 0 0 22px; font-weight: 700; color: var(--blue); }
+.who__hint { margin: 0 0 22px; font-weight: 700; color: var(--navy); }
+/* Mist would vanish on the mist band, so that panel and the tab hover go white */
+#who .pill--mist { background: var(--white); }
 .who__tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 26px; }
 .who__tab {
   display: flex;
@@ -277,7 +281,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round
   transition: background 0.25s, color 0.25s, transform 0.35s var(--ease-out);
 }
 .who__tab svg { width: 22px; height: 22px; flex: none; stroke-width: 1.7; }
-.who__tab:hover { background: var(--mist); }
+.who__tab:hover { background: var(--white); }
 .who__tab[aria-selected="true"] { background: var(--blue); color: var(--white); }
 .who__tab:active { transform: scale(0.97); }
 .pills.is-enhanced { display: block; }
