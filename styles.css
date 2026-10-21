@@ -585,14 +585,6 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
   text-transform: uppercase;
 }
 .plan__note { margin: -4px 0 14px; font-size: 0.95rem; font-weight: 500; }
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
 .plan__meta { list-style: none; padding: 0; margin: 0 0 22px; font-weight: 700; font-size: 0.95rem; line-height: 1.45; }
 .plan__meta li { display: inline; }
 .plan__meta li + li::before {
