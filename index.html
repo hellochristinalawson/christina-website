@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-sans@5.2.5/500.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-sans@5.2.5/700.css">
   <link rel="preload" as="image" href="images/christina-hero-matcha.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20261021b">
+  <link rel="stylesheet" href="styles.css?v=20261021c">
 </head>
 <body>
 
@@ -215,9 +215,11 @@
         <div class="plans">
           <article class="plan plan--grey">
             <h3>Clarity Session</h3>
-            <p class="plan__offer">Introductory offer</p>
-            <p class="plan__price">£55 <s>£85</s></p>
-            <p class="plan__note">Your first session for £55, then £85 per session.</p>
+            <div class="plan__pricing">
+              <p class="plan__offer">Introductory offer</p>
+              <p class="plan__price">£55 <s>£85</s></p>
+              <p class="plan__note">Your first session for £55, then £85 per session.</p>
+            </div>
             <ul class="plan__meta"><li>1:1 Mentoring</li><li>50 mins online</li></ul>
             <p>A focused session to explore a specific challenge, gain a fresh perspective and find clarity on your next steps.</p>
             <details class="plan__details">
@@ -233,7 +235,9 @@
 
           <article class="plan plan--sky">
             <h3>Development Package</h3>
-            <p class="plan__price">£320</p>
+            <div class="plan__pricing">
+              <p class="plan__price">£320</p>
+            </div>
             <ul class="plan__meta"><li>Four sessions</li><li>50 mins online</li></ul>
             <p>Ongoing mentoring to develop your leadership style, management skills and confidence in supporting your team.</p>
             <details class="plan__details">
@@ -250,7 +254,9 @@
 
           <article class="plan plan--blue">
             <h3>Team Building</h3>
-            <p class="plan__price">On request</p>
+            <div class="plan__pricing">
+              <p class="plan__price">On request</p>
+            </div>
             <ul class="plan__meta"><li>Team workshops</li><li>90-120 minutes in person (UK &amp; EU only)</li></ul>
             <p>An interactive workshop to explore team values, motivations and ways of working.</p>
             <details class="plan__details">
@@ -348,6 +354,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20261021b"></script>
+  <script src="script.js?v=20261021c"></script>
 </body>
 </html>

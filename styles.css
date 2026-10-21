@@ -556,6 +556,7 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 /* Services */
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: stretch; }
 .plan {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 52px 40px 44px;
@@ -572,9 +573,12 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .plan__price small { font: 700 0.95rem var(--font-body); letter-spacing: 0.04em; vertical-align: 0.6em; margin-right: 4px; }
 .plan__price s { font-size: 0.5em; font-weight: 800; opacity: 0.55; margin-left: 6px; vertical-align: 0.35em; text-decoration-thickness: 2px; }
 .plan--blue .plan__price { font-size: clamp(1.5rem, 2.2vw, 1.85rem); white-space: nowrap; }
+/* Sits on the card's top edge so titles and prices stay level across cards */
 .plan__offer {
-  align-self: flex-start;
-  margin: 0 0 12px;
+  position: absolute;
+  top: -15px;
+  left: 48px;
+  margin: 0;
   padding: 5px 14px;
   border-radius: 999px;
   background: var(--blue);
@@ -612,6 +616,19 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .plan__list li { margin-bottom: 8px; }
 .plan__list li::marker { color: var(--blue); }
 .plan .btn { align-self: flex-start; margin-top: auto; }
+
+/* Side by side, the cards share rows so each part lines up across all three */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 961px) {
+    .plan {
+      display: grid;
+      grid-row: span 6;
+      grid-template-rows: subgrid;
+      row-gap: 0;
+    }
+    .plan .btn { justify-self: start; align-self: end; }
+  }
+}
 .plan--grey { background: var(--grey); }
 .plan--sky { background: var(--sky); color: var(--navy-deep); }
 .plan--sky .plan__list li::marker { color: var(--navy); }
