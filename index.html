@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Creative Perspective | Christina Lawson, Creative Leadership Mentor</title>
   <meta name="description" content="Mentoring for ambitious creatives looking for clarity, direction and practical support. Creative leadership and personal development with Christina Lawson.">
+  <meta name="theme-color" content="#f2f0e4">
+  <link rel="canonical" href="https://christinalawson.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://christinalawson.com/">
+  <meta property="og:title" content="The Creative Perspective | Christina Lawson">
+  <meta property="og:description" content="Mentoring for ambitious creatives looking for clarity, direction and practical support.">
+  <meta property="og:image" content="https://christinalawson.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Archivo Expanded stands in for Cy Grotesk V3 Wide until its web font files are added (see styles.css) -->
@@ -12,6 +25,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-sans@5.2.5/400.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-sans@5.2.5/500.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-sans@5.2.5/700.css">
+  <link rel="preload" as="image" href="images/christina-hero-matcha.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,17 +34,25 @@
   <svg width="0" height="0" class="sprite" aria-hidden="true">
     <symbol id="i-arrow-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <!-- Spectrum C: three nested arcs, deep to light; same drawing as favicon.svg -->
+    <symbol id="i-logo" viewBox="0 0 48 48">
+      <path style="stroke: var(--logo-deep, #22335a)" d="M37.4 10.6A19 19 0 1 0 37.4 37.4"/>
+      <path style="stroke: var(--logo-mid, #4a69a0)" d="M33.2 14.8A13 13 0 1 0 33.2 33.2"/>
+      <path style="stroke: var(--logo-light, #b2c6e7)" d="M29 19A7 7 0 1 0 29 29"/>
+    </symbol>
   </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a href="#top" class="logo">Christina Lawson</a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <a href="#top" class="logo" aria-label="Christina Lawson, back to top"><svg class="logo__mark" aria-hidden="true"><use href="#i-logo"/></svg>Christina</a>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
         <span></span><span></span>
       </button>
-      <nav class="nav__links">
+      <nav class="nav__links" id="site-menu" aria-label="Main">
         <a href="#who">Who I work with</a>
-        <a href="#how">How we'll work</a>
+        <a href="#how">What to expect</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn btn--small">Book a free call</a>
@@ -38,7 +60,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
     <section class="hero">
       <div class="container hero__inner">
@@ -52,20 +74,26 @@
           <p class="hero__role">Creative Leadership &amp; Personal Development Mentor</p>
         </div>
         <div class="hero__visual">
-          <img class="hero__photo" src="images/christina-hero.png" width="867" height="1300" fetchpriority="high" decoding="async" alt="Christina Lawson sitting on a chair, smiling">
-          <img class="hero__matcha" src="images/matcha.png" width="221" height="400" decoding="async" alt="">
-          <div class="bubble" aria-hidden="true">G'day!</div>
+          <div class="hero__figure">
+            <picture>
+              <source srcset="images/christina-hero-matcha.webp" type="image/webp">
+              <img class="hero__photo" src="images/christina-hero-matcha.png" width="1274" height="1706" fetchpriority="high" decoding="async" alt="Christina Lawson sitting on a chair holding an iced matcha, smiling, with a speech bubble saying G'day!">
+            </picture>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- WHO I WORK WITH -->
-    <section class="section" id="who">
+    <section class="section" id="who" aria-labelledby="who-title">
       <div class="container">
-        <p class="kicker">Who I work with</p>
-        <h2>Creatives ready to grow into their next chapter.</h2>
-        <p class="intro">I work with creative professionals, managers and individuals navigating leadership, career development and personal growth. Whether you're taking on new responsibilities, exploring your next steps or looking to develop your own approach, mentoring is tailored to your experience and ambitions.</p>
-        <hr class="rule">
+        <header class="section__head">
+          <h2 class="title" id="who-title">Who I work with</h2>
+          <p class="section__lead">Creatives ready to grow into their next chapter.</p>
+          <p class="intro">I work with creative professionals, managers and individuals navigating leadership, career development and personal growth. Whether you're taking on new responsibilities, exploring your next steps or looking to develop your own approach, mentoring is tailored to your experience and ambitions.</p>
+        </header>
+        <!-- Shown by script.js, which turns the pills into tabs with one open panel -->
+        <p class="who__hint" hidden>Which of these sounds like you?</p>
         <div class="pills">
           <article class="pill pill--grey">
             <h3>Navigating Leadership</h3>
@@ -88,6 +116,10 @@
             <svg class="pill__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </article>
         </div>
+        <div class="who__cta-inner">
+          <p>Not sure which fits? Let's talk it through in a relaxed 15-minute chat.</p>
+          <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn">Book my free 15-min call <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-out"/></svg></a>
+        </div>
       </div>
     </section>
 
@@ -98,117 +130,136 @@
           <header class="section__head offer__head">
             <h2 class="title" id="offer-title">What can mentoring offer you?</h2>
             <p class="section__lead">Sometimes, you just need space to think.</p>
-            <p class="intro">Even the most capable people benefit from a fresh perspective. Mentoring gives you dedicated time to focus on yourself, explore your ideas and gain a different perspective. Whether you're navigating a challenge, considering your next steps or working towards a goal, having someone in your corner can help you move forward with greater clarity and intention.</p>
+            <p class="intro">Even the most capable people benefit from a fresh perspective. Mentoring gives you dedicated time to focus on yourself, explore your ideas and gain a different perspective. Whatever you're working through, having someone in your corner can help you move forward with greater clarity and intention.</p>
           </header>
-          <ul class="benefits">
-            <li class="benefit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.4 1 3.9 2 5v6h8v-3h2a2 2 0 0 0 2-2v-3l2-1-2-3a7 7 0 0 0-7-6z"/><path d="M11 13V9m0 2c-1.5 0-2.5-1-2.5-2.5M11 11c1.5 0 2.5-1 2.5-2.5"/></svg>
-              <div>
-                <h3>Dedicated Space to Reflect</h3>
-                <p>Time away from everyday demands to focus on your own thoughts, priorities and personal development.</p>
-              </div>
-            </li>
-            <li class="benefit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="16" r="4"/><circle cx="18" cy="16" r="4"/><path d="M10 16h4M3 13l2-8h3l1 7m12 1-2-8h-3l-1 7"/></svg>
-              <div>
-                <h3>A Fresh Perspective</h3>
-                <p>Gain new insights, challenge your assumptions and help you see things from another angle.</p>
-              </div>
-            </li>
-            <li class="benefit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>
-              <div>
-                <h3>Greater Self Awareness</h3>
-                <p>An opportunity to better understand your strengths, motivations, tendencies, and what matters most to you.</p>
-              </div>
-            </li>
-            <li class="benefit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7 .9L21 7"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></svg>
-              <div>
-                <h3>Practical Support &amp; Accountability</h3>
-                <p>Turn ideas into achievable steps, with structure, encouragement and ongoing support.</p>
-              </div>
-            </li>
-          </ul>
+          <div class="benefits">
+            <details class="benefit" name="benefit" open>
+              <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7c0 2.4 1 3.9 2 5v6h8v-3h2a2 2 0 0 0 2-2v-3l2-1-2-3a7 7 0 0 0-7-6z"/><path d="M11 13V9m0 2c-1.5 0-2.5-1-2.5-2.5M11 11c1.5 0 2.5-1 2.5-2.5"/></svg><span class="benefit__title">Dedicated Space to Reflect</span><span class="toggle" aria-hidden="true"></span></summary>
+              <p>Time away from everyday demands to focus on your own thoughts, priorities and personal development.</p>
+            </details>
+            <details class="benefit" name="benefit">
+              <summary><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="16" r="4"/><circle cx="18" cy="16" r="4"/><path d="M10 16h4M3 13l2-8h3l1 7m12 1-2-8h-3l-1 7"/></svg><span class="benefit__title">A Fresh Perspective</span><span class="toggle" aria-hidden="true"></span></summary>
+              <p>Gain new insights, challenge your assumptions and help you see things from another angle.</p>
+            </details>
+            <details class="benefit" name="benefit">
+              <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><span class="benefit__title">Greater Self Awareness</span><span class="toggle" aria-hidden="true"></span></summary>
+              <p>An opportunity to better understand your strengths, motivations, tendencies, and what matters most to you.</p>
+            </details>
+            <details class="benefit" name="benefit">
+              <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7 .9L21 7"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></svg><span class="benefit__title">Practical Support &amp; Accountability</span><span class="toggle" aria-hidden="true"></span></summary>
+              <p>Turn ideas into achievable steps, with structure, encouragement and ongoing support.</p>
+            </details>
+          </div>
         </div>
         <a href="#services" class="banner">See the potential? An experienced sounding board can help you take the next step. <svg class="banner__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
       </div>
     </section>
 
     <!-- HOW WE'LL WORK -->
-    <section class="section" id="how">
+    <section class="section" id="how" aria-labelledby="how-title">
       <div class="container">
-        <p class="kicker">How we'll work</p>
-        <h2>A little perspective goes a long way.</h2>
-        <p class="intro">Whether you're navigating a leadership challenge, exploring your personal development or working towards a goal, we'll combine thoughtful reflection with practical strategies to help you find clarity and move forward.</p>
-        <hr class="rule">
-        <h3 class="subhead">The PRISM Framework</h3>
-        <p class="sub-intro">Five ways to explore your growth, development and leadership. PRISM is one of the frameworks we'll use together to establish your goals and create action.</p>
-        <ol class="prism">
-          <li><span class="prism__letter">P</span><strong>Perspective</strong><span>Explore different viewpoints</span></li>
-          <li><span class="prism__letter">R</span><strong>Reflect</strong><span>Understand what matters to you</span></li>
-          <li><span class="prism__letter">I</span><strong>Identify</strong><span>Recognise growth opportunities</span></li>
-          <li><span class="prism__letter">S</span><strong>Support</strong><span>Find strategies that work for you</span></li>
-          <li><span class="prism__letter">M</span><strong>Model</strong><span>Put your learning into practice</span></li>
-        </ol>
-        <div class="human-design">
-          <div>
-            <h3 class="subhead">Human Design</h3>
-            <p class="human-design__tag">A deeper layer of self-discovery</p>
-            <p>If you're curious to explore your personal development from another angle, we can also use Human Design as a reflective exercise to consider your strengths, motivations and working preferences. Rooted in astrology and spiritual traditions, it's an optional tool for deeper self-reflection on your development journey.</p>
+        <div class="how">
+          <div class="how__copy">
+            <header class="section__head">
+              <h2 class="title" id="how-title">What to expect</h2>
+              <p class="section__lead">A little perspective goes a long way.</p>
+              <p class="intro">Whether you're navigating a leadership challenge, exploring your personal development or working towards a goal, we'll combine thoughtful reflection with practical strategies to help you find clarity and move forward.</p>
+            </header>
+            <h3 class="subhead">The PRISM Framework</h3>
+            <p class="sub-intro">Five ways to explore your growth, development and leadership. PRISM is one of the frameworks we'll use together to establish your goals and create action.</p>
           </div>
-          <svg class="prism-mark" viewBox="0 0 260 190" aria-hidden="true">
-            <path d="M110 20 160 4l92 176H8z"/><path d="M110 20 68 140h170"/><path d="M160 4 110 20M68 140l38 40"/>
-            <path d="M0 92h60M198 64l58-18M206 92h54M206 104l52 28"/>
-          </svg>
+          <div class="prism" data-prism>
+            <ol class="prism__tiles">
+              <li><button type="button" class="prism__tile" aria-pressed="true" aria-controls="prism-detail"><span class="prism__letter" aria-hidden="true">P</span><strong>Perspective</strong><span class="prism__desc">Explore different viewpoints</span></button></li>
+              <li><button type="button" class="prism__tile" aria-pressed="false" aria-controls="prism-detail"><span class="prism__letter" aria-hidden="true">R</span><strong>Reflect</strong><span class="prism__desc">Understand what matters to you</span></button></li>
+              <li><button type="button" class="prism__tile" aria-pressed="false" aria-controls="prism-detail"><span class="prism__letter" aria-hidden="true">I</span><strong>Identify</strong><span class="prism__desc">Recognise growth opportunities</span></button></li>
+              <li><button type="button" class="prism__tile" aria-pressed="false" aria-controls="prism-detail"><span class="prism__letter" aria-hidden="true">S</span><strong>Support</strong><span class="prism__desc">Find strategies that work for you</span></button></li>
+              <li><button type="button" class="prism__tile" aria-pressed="false" aria-controls="prism-detail"><span class="prism__letter" aria-hidden="true">M</span><strong>Model</strong><span class="prism__desc">Put your learning into practice</span></button></li>
+            </ol>
+            <p class="prism__detail" id="prism-detail" aria-live="polite" hidden></p>
+          </div>
         </div>
+        <aside class="hd" aria-labelledby="hd-title">
+          <div class="hd__copy">
+            <h3 class="hd__title" id="hd-title">Human Design</h3>
+            <p class="hd__tag">A deeper layer of self-discovery</p>
+            <p>If you're curious to explore your personal development from another angle, we can also use Human Design as a reflective exercise to consider your strengths, motivations and working preferences. Rooted in astrology and spiritual traditions, it's an optional tool for deeper self-reflection on your development journey.</p>
+            <a class="hd__link" href="#services">Optional in the Development Package <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+          <figure class="hd__graph" aria-hidden="true">
+            <svg class="bodygraph" viewBox="0 0 200 332">
+              <path class="bodygraph__channels" d="M100 46v12M100 96v14M100 144v16M100 204v34M100 272v18M90 144 46 248M110 144l44 104M54 272l28 26M146 272l-28 26M62 260h20M138 260h-20M120 192l12 6M152 218l8 28"/>
+                <g class="bodygraph__centre" style="--i:0"><path d="M100 8 124 46H76z"/></g>
+                <g class="bodygraph__centre" style="--i:1"><path d="M76 58h48l-24 38z"/></g>
+                <g class="bodygraph__centre" style="--i:2"><rect x="82" y="110" width="36" height="34" rx="4"/></g>
+                <g class="bodygraph__centre" style="--i:3"><path d="M100 160 122 182 100 204 78 182z"/></g>
+                <g class="bodygraph__centre" style="--i:4"><path d="M128 204 152 192v26z"/></g>
+                <g class="bodygraph__centre" style="--i:5"><path d="M24 236v48l38-24z"/></g>
+                <g class="bodygraph__centre" style="--i:6"><rect x="82" y="238" width="36" height="34" rx="4"/></g>
+                <g class="bodygraph__centre" style="--i:7"><path d="M176 236v48l-38-24z"/></g>
+                <g class="bodygraph__centre" style="--i:8"><rect x="82" y="290" width="36" height="34" rx="4"/></g>
+            </svg>
+            <figcaption class="hd__hint">Tap the centres</figcaption>
+          </figure>
+        </aside>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="section section--white" id="services">
+    <section class="section section--white" id="services" aria-labelledby="services-title">
       <div class="container">
-        <p class="kicker">Ways to work together</p>
-        <p class="intro">Whether you need a fresh perspective on a specific challenge, space to focus on your development, or accountability to reach your goals, there's a way we can work together.</p>
+        <header class="section__head">
+          <h2 class="title" id="services-title">Ways to work together</h2>
+          <p class="intro">Whether you need a fresh perspective on a specific challenge, space to focus on your development, or accountability to reach your goals, there's a way we can work together.</p>
+        </header>
         <div class="plans">
           <article class="plan plan--grey">
             <h3>Clarity Session</h3>
-            <p class="plan__meta">1:1 Mentoring | 50 mins online | <strong>£85</strong></p>
+            <p class="plan__price">£85</p>
+            <ul class="plan__meta"><li>1:1 Mentoring</li><li>50 mins online</li></ul>
             <p>A focused session to explore a specific challenge, gain a fresh perspective and find clarity on your next steps.</p>
-            <p class="plan__receive">You'll receive:</p>
-            <ul>
-              <li>Pre-session questionnaire to identify your goals</li>
-              <li>50-minute private mentoring session</li>
-              <li>Personalised action plan and practical next steps</li>
-            </ul>
+            <details class="plan__details">
+              <summary>What you'll receive<span class="toggle" aria-hidden="true"></span></summary>
+              <ul class="plan__list">
+                <li>Pre-session questionnaire to identify your goals</li>
+                <li>50-minute private mentoring session</li>
+                <li>Personalised action plan and practical next steps</li>
+              </ul>
+            </details>
             <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn btn--outline">Find my clarity</a>
           </article>
 
           <article class="plan plan--sky">
             <h3>Development Package</h3>
-            <p class="plan__meta">Four sessions | 50 mins online | <strong>£320</strong></p>
+            <p class="plan__price">£320</p>
+            <ul class="plan__meta"><li>Four sessions</li><li>50 mins online</li></ul>
             <p>Ongoing mentoring to develop your leadership style, management skills and confidence in supporting your team.</p>
-            <p class="plan__receive">You'll receive:</p>
-            <ul>
-              <li>Four 50-minute private mentoring sessions over four weeks</li>
-              <li>PRISM framework for practical development</li>
-              <li>Optional Human Design exploration for deeper self-discovery</li>
-              <li>Personalised development plan and actionable next steps</li>
-            </ul>
+            <details class="plan__details">
+              <summary>What you'll receive<span class="toggle" aria-hidden="true"></span></summary>
+              <ul class="plan__list">
+                <li>Four 50-minute private mentoring sessions over four weeks</li>
+                <li>PRISM framework for practical development</li>
+                <li>Optional Human Design exploration for deeper self-discovery</li>
+                <li>Personalised development plan and actionable next steps</li>
+              </ul>
+            </details>
             <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn btn--dark">Start developing</a>
           </article>
 
           <article class="plan plan--blue">
             <h3>Team Building</h3>
-            <p class="plan__meta">Team workshops | 90-120 minutes in person (UK &amp; EU only) | <strong>From £950</strong></p>
+            <p class="plan__price"><small>From</small> £950</p>
+            <ul class="plan__meta"><li>Team workshops</li><li>90-120 minutes in person (UK &amp; EU only)</li></ul>
             <p>An interactive workshop to explore team values, motivations and ways of working.</p>
-            <p class="plan__receive">You'll receive:</p>
-            <ul>
-              <li>Pre-workshop discovery call</li>
-              <li>Two 90 min workshop sessions (over 1-2 days)</li>
-              <li>Presentation deck and participant worksheets</li>
-              <li>Post-workshop summary and recommendations</li>
-            </ul>
+            <details class="plan__details">
+              <summary>What you'll receive<span class="toggle" aria-hidden="true"></span></summary>
+              <ul class="plan__list">
+                <li>Pre-workshop discovery call</li>
+                <li>Two 90 min workshop sessions (over 1-2 days)</li>
+                <li>Presentation deck and participant worksheets</li>
+                <li>Post-workshop summary and recommendations</li>
+              </ul>
+            </details>
             <a href="mailto:hello@christinalawson.com?subject=Team%20Building%20workshop" class="btn btn--light">Enquire for your team</a>
           </article>
         </div>
@@ -216,22 +267,25 @@
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
+    <section class="section" id="about" aria-labelledby="about-title">
       <div class="container about">
         <div class="about__copy">
-          <p class="kicker">About me</p>
-          <h2>Hello! I'm Christina.</h2>
+          <h2 class="title" id="about-title">About me</h2>
+          <p class="section__lead">Hello! I'm Christina.</p>
           <p class="about__lead">A creative management professional with over eight years of experience across Australia, the UK and Europe.</p>
           <p>I know what it's like to balance the needs of your team with expectations from above. Today, I use that experience to help creative professionals build confidence, develop their skills and find their own approach to leadership and growth.</p>
-          <p>If you're here, then I'm guessing that you really care about how you show up in the world. You want to do a good job, make thoughtful decisions and support the people who rely on you. And sometimes, you need a little support yourself.</p>
-          <p>That's where I come in. I offer practical mentoring, personalised development, accountability support, and a fresh perspective to help you navigate challenges, make confident decisions and turn your goals into meaningful progress.</p>
+          <details class="more">
+            <summary>Read more<span class="toggle" aria-hidden="true"></span></summary>
+            <p>If you're here, then I'm guessing that you really care about how you show up in the world. You want to do a good job, make thoughtful decisions and support the people who rely on you. And sometimes, you need a little support yourself.</p>
+            <p>That's where I come in. I offer practical mentoring, personalised development, accountability support, and a fresh perspective to help you navigate challenges, make confident decisions and turn your goals into meaningful progress.</p>
+          </details>
           <ul class="stats">
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m12 6 1 2 2 .3-1.5 1.4.4 2.1L12 10.8l-1.9 1 .4-2.1L9 8.3l2-.3z"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg>
               <strong>8+</strong><span>Years in creative management</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.5 9.4 8a2 2 0 0 1 0-2.9 2 2 0 0 1 2.6 0 2 2 0 0 1 2.6 0 2 2 0 0 1 0 2.9z"/><path d="M3 11v6l5 4h4v-4l-3-3M21 11v6l-5 4h-4"/><path d="M12 17v-1l3-3"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
               <strong>25+</strong><span>Brands supported</span>
             </li>
             <li>
@@ -240,42 +294,55 @@
             </li>
           </ul>
         </div>
-        <img class="about__photo" src="images/christina-about.jpg" alt="Christina Lawson laughing, sitting on a stool">
+        <picture>
+          <source srcset="images/christina-about.webp" type="image/webp">
+          <img class="about__photo" src="images/christina-about.jpg" width="665" height="887" loading="lazy" decoding="async" alt="Christina Lawson laughing, sitting on a stool">
+        </picture>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section section--white" id="contact">
+    <section class="section section--white" id="contact" aria-labelledby="contact-title">
       <div class="container contact">
         <div class="contact__copy">
-          <h2 class="kicker kicker--icon">Let's talk!
+          <h2 class="title title--icon" id="contact-title">Let's talk!
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 21l2-5a8.4 8.4 0 1 1 16-4.5z"/><path d="M8.5 12h.01M12.5 12h.01M16.5 12h.01"/></svg>
           </h2>
           <p>Whether you're navigating leadership, working towards a goal or looking for a fresh perspective, I'd love to hear what you're working through.</p>
 
-          <h3 class="kicker kicker--icon">Free intro call
+          <h3 class="contact__heading">Free intro call
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
           </h3>
           <p>A relaxed 15-minute chat to get to know each other, discuss what you need and see how I can help.</p>
-          <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn">Book my free 15-min call <span aria-hidden="true">↗</span></a>
+          <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener" class="btn">Book my free 15-min call <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-out"/></svg></a>
           <p class="contact__note">No preparation or commitment needed.</p>
 
-          <h3 class="kicker kicker--icon">Email
+          <h3 class="contact__heading">Email
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
           </h3>
           <p><a class="contact__email" href="mailto:hello@christinalawson.com">hello@christinalawson.com</a></p>
-          <p>Based in Lisbon | Working with clients across the UK, EU, &amp; AUS.</p>
+          <p>Based in Lisbon <span class="sep" aria-hidden="true"></span> Working with clients across the UK, EU, &amp; AUS.</p>
         </div>
-        <img class="contact__photo" src="images/christina-lisbon.jpg" alt="Christina working on a laptop in a Lisbon café">
+        <picture>
+          <source srcset="images/christina-lisbon.webp" type="image/webp">
+          <img class="contact__photo" src="images/christina-lisbon.jpg" width="717" height="956" loading="lazy" decoding="async" alt="Christina working on a laptop in a Lisbon café">
+        </picture>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#top" class="logo">Christina Lawson</a>
-      <p>Creative Leadership &amp; Personal Development Mentor</p>
-      <p>&copy; <span id="year"></span> Christina Lawson</p>
+      <div class="footer__brand">
+        <a href="#top" class="logo" aria-label="Christina Lawson, back to top"><svg class="logo__mark" aria-hidden="true"><use href="#i-logo"/></svg>Christina</a>
+        <p>Creative Leadership &amp; Personal Development Mentor</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener">Book a free call</a></li>
+        <li><a href="mailto:hello@christinalawson.com">hello@christinalawson.com</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
+      <p class="footer__legal">&copy; <span id="year"></span> Christina Lawson</p>
     </div>
   </footer>
 
