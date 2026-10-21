@@ -144,4 +144,26 @@ if (bodygraph) {
   }
 }
 
+// Pricing cards: while side by side, give each part the same height in every card so the text lines up.
+// Cards still size on their own, so opening "What you'll receive" only grows that card.
+const plans = document.querySelector(".plans");
+if (plans) {
+  const cards = [...plans.querySelectorAll(".plan")];
+  const parts = ["h3", ".plan__pricing", ".plan__meta", ".plan__desc"];
+  const sideBySide = window.matchMedia("(min-width: 961px)");
+  const level = () => {
+    parts.forEach((part) => {
+      const els = cards.map((card) => card.querySelector(part));
+      els.forEach((el) => (el.style.minHeight = ""));
+      if (!sideBySide.matches) return;
+      const tallest = Math.max(...els.map((el) => el.getBoundingClientRect().height));
+      els.forEach((el) => (el.style.minHeight = tallest + "px"));
+    });
+  };
+  level();
+  document.fonts.ready.then(level);
+  sideBySide.addEventListener("change", level);
+  window.addEventListener("resize", level);
+}
+
 document.getElementById("year").textContent = new Date().getFullYear();

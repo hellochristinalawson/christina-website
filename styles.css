@@ -554,7 +554,8 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .hd__hint { margin-top: 14px; font-size: 0.85rem; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.6); }
 
 /* Services */
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: stretch; }
+/* Cards size independently, so opening one card's details only grows that card */
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }
 .plan {
   position: relative;
   display: flex;
@@ -616,19 +617,6 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .plan__list li { margin-bottom: 8px; }
 .plan__list li::marker { color: var(--blue); }
 .plan .btn { align-self: flex-start; margin-top: auto; }
-
-/* Side by side, the cards share rows so each part lines up across all three */
-@supports (grid-template-rows: subgrid) {
-  @media (min-width: 961px) {
-    .plan {
-      display: grid;
-      grid-row: span 6;
-      grid-template-rows: subgrid;
-      row-gap: 0;
-    }
-    .plan .btn { justify-self: start; align-self: end; }
-  }
-}
 .plan--grey { background: var(--grey); }
 .plan--sky { background: var(--sky); color: var(--navy-deep); }
 .plan--sky .plan__list li::marker { color: var(--navy); }
