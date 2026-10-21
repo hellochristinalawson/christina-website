@@ -622,7 +622,8 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  border-radius: 64px;
+  /* Scales with the photo so it always covers the white corners baked into the image files */
+  border-radius: 15% / 11.25%;
 }
 .about__photo { background: #d8dee6; }
 .stats { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; color: var(--blue); }
@@ -756,8 +757,6 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
   .hd { border-radius: 40px; padding: 40px 26px; }
   .plan { border-radius: 40px; padding: 40px 28px 32px; }
   .stats { grid-template-columns: 1fr; gap: 28px; }
-  .about__photo,
-  .contact__photo { border-radius: 44px; }
   .footer__inner { grid-template-columns: 1fr; gap: 20px; }
   .footer__links { flex-direction: column; gap: 0; }
 }
