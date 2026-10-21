@@ -417,7 +417,8 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .how { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 88px; align-items: center; }
 .how .section__head { margin-bottom: 48px; }
 .how .sub-intro { margin: 0; }
-.prism { width: 100%; max-width: 560px; margin: 0; }
+/* The picker sizes from its own width (cqi), so letters, gaps and corners shrink together on phones */
+.prism { width: 100%; max-width: 560px; margin: 0; container-type: inline-size; }
 .prism__tiles {
   list-style: none;
   padding: 0;
@@ -454,9 +455,9 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .prism:not(.is-enhanced) .prism__tiles li:last-child { grid-column: span 2; }
 .prism.is-enhanced .prism__desc,
 .prism.is-enhanced .prism__tile strong { display: none; }
-.prism.is-enhanced .prism__tiles { gap: 12px; }
-.prism.is-enhanced .prism__tile { aspect-ratio: 4 / 5; justify-content: center; padding: 12px 4px; }
-.prism.is-enhanced .prism__letter { margin: 0; font-size: clamp(2rem, 3.4vw, 3.1rem); }
+.prism.is-enhanced .prism__tiles { gap: clamp(6px, 2.2cqi, 12px); }
+.prism.is-enhanced .prism__tile { aspect-ratio: 4 / 5; justify-content: center; padding: 12px 4px; border-radius: clamp(12px, 4cqi, 22px); }
+.prism.is-enhanced .prism__letter { margin: 0; font-size: clamp(1.2rem, 8.2cqi, 3.1rem); }
 .prism.is-enhanced .prism__tile:hover { transform: translateY(-4px); }
 .prism.is-enhanced .prism__tile[aria-pressed="true"] {
   transform: translateY(-10px);
@@ -771,8 +772,6 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
   .benefit__title { font-size: 1.08rem; }
   .benefit p { padding: 0 0 24px 54px; }
   .banner { border-radius: 28px; padding: 22px 26px; }
-  .prism.is-enhanced .prism__tiles { gap: 8px; }
-  .prism.is-enhanced .prism__tile { border-radius: 16px; }
   .prism__detail { min-height: 112px; padding: 22px 24px; font-size: 1.05rem; }
   .prism__detail strong { font-size: 1.3rem; }
   .hd { border-radius: 40px; padding: 40px 26px; }
