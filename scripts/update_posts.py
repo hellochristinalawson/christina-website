@@ -9,17 +9,46 @@ import json
 import re
 import sys
 import urllib.request
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
-FEED = "https://perspectivepapers.substack.com/api/v1/posts?limit=3"
+API = "https://perspectivepapers.substack.com/api/v1/posts?limit=3"
+RSS = "https://perspectivepapers.substack.com/feed"
 PAGE = Path(__file__).resolve().parent.parent / "index.html"
 START, END = "<!-- posts:start -->", "<!-- posts:end -->"
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; christinalawson.com post updater; +https://christinalawson.com)",
+    "Accept": "application/json, application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+}
+
+
+def get(url):
+    with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=30) as response:
+        return response.read()
+
+
+def from_rss(raw):
+    """Same fields as the API, read from the RSS feed (title, subtitle, link, cover image)."""
+    posts = []
+    for item in ET.fromstring(raw).iter("item"):
+        enclosure = item.find("enclosure")
+        posts.append({
+            # The feed's text arrives with entities such as &#8217; still encoded
+            "title": html.unescape(item.findtext("title", "")),
+            "subtitle": html.unescape(item.findtext("description", "")),
+            "canonical_url": item.findtext("link", ""),
+            "cover_image": enclosure.get("url") if enclosure is not None else None,
+        })
+    return posts[:3]
 
 
 def fetch_posts():
-    request = urllib.request.Request(FEED, headers={"User-Agent": "christinalawson.com post updater"})
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)
+    # Substack sometimes refuses its API to servers such as GitHub's, so fall back to the RSS feed
+    try:
+        return json.loads(get(API))
+    except Exception as error:
+        print(f"API unavailable ({error}); trying the RSS feed.")
+        return from_rss(get(RSS))
 
 
 def card(post):
