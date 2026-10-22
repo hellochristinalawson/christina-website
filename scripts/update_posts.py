@@ -17,14 +17,21 @@ RSS = "https://perspectivepapers.substack.com/feed"
 PAGE = Path(__file__).resolve().parent.parent / "index.html"
 START, END = "<!-- posts:start -->", "<!-- posts:end -->"
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; christinalawson.com post updater; +https://christinalawson.com)",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
     "Accept": "application/json, application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+    "Accept-Language": "en-GB,en;q=0.9",
 }
 
 
 def get(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=30) as response:
-        return response.read()
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=30) as response:
+            return response.read()
+    except urllib.error.HTTPError as error:
+        # Say who refused and why, so a blocked run is easy to diagnose from the Actions log
+        clues = {k: error.headers.get(k) for k in ("server", "cf-mitigated", "cf-ray") if error.headers.get(k)}
+        print(f"{url} -> HTTP {error.code} {clues}")
+        raise
 
 
 def from_rss(raw):
