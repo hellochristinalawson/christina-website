@@ -653,6 +653,39 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .stats strong { display: block; font-size: 1.25rem; }
 .stats span { display: block; font-size: 0.9rem; font-weight: 700; line-height: 1.35; }
 
+/* Blog: same light blue band as "Who I work with", so it separates from About (cream) and Contact (white) */
+#blog { background: var(--mist); }
+.posts { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.post {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--white);
+  border: 2px solid var(--blue);
+  border-radius: 32px;
+  text-decoration: none;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.post:hover { transform: translateY(-6px); box-shadow: 0 22px 36px -24px rgba(34, 51, 90, 0.7); }
+.post__image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--sky); }
+.post__body { display: flex; flex-direction: column; gap: 10px; padding: 24px 28px 30px; }
+.post__title { font-size: 1.2rem; font-weight: 700; line-height: 1.3; text-wrap: balance; }
+.post__summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+.blog__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 48px; }
+@media (max-width: 960px) {
+  .posts { max-width: 560px; }
+  /* Stacked, a tall cover would push the next post far down, so use a wide crop */
+  .post__image { aspect-ratio: 16 / 9; }
+}
+
 /* Contact */
 .contact { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
 .contact__heading {
@@ -711,6 +744,7 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
   .hero__visual { max-width: 460px; width: 100%; margin-inline: auto; }
   .pills,
   .plans,
+  .posts,
   .about,
   .contact,
   .offer,
