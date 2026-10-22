@@ -1,7 +1,7 @@
 """Refresh the blog block in index.html with the latest posts from The Perspective Papers.
 
 Rewrites only what sits between <!-- posts:start --> and <!-- posts:end -->.
-Run by .github/workflows/update-posts.yml; safe to run by hand: python3 scripts/update_posts.py
+Run by scripts/mac-updater.sh every 3 hours; safe to run by hand: python3 scripts/update_posts.py
 """
 
 import html
