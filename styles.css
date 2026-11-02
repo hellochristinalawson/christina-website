@@ -410,6 +410,41 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
 .banner__icon { width: 26px; height: 26px; flex: none; stroke-width: 2; transition: transform 0.35s var(--ease-out); }
 .banner:hover .banner__icon { transform: translateX(6px); }
 
+/* How we'll work: four general principles in place of PRISM and Human Design */
+.approach { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.approach li {
+  padding: 30px 26px;
+  border: 2px solid var(--blue);
+  border-radius: 28px;
+  color: var(--navy);
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+/* Light to dark across the palette, like the PRISM tiles and pricing cards */
+.approach li:nth-child(1) { background: var(--grey); }
+.approach li:nth-child(2) { background: var(--mist); }
+.approach li:nth-child(3) { background: var(--sky); color: var(--navy-deep); }
+.approach li:nth-child(4) { background: var(--blue); color: var(--white); border-color: var(--navy-deep); }
+.approach li:hover { transform: translateY(-8px); box-shadow: 0 24px 40px -26px rgba(34, 51, 90, 0.75); }
+.approach svg { width: 40px; height: 40px; color: var(--blue); stroke-width: 1.6; margin-bottom: 16px; transition: transform 0.5s var(--ease-out); }
+.approach li:nth-child(3) svg { color: var(--navy-deep); }
+.approach li:nth-child(4) svg { color: var(--sky); }
+.approach li:hover svg { transform: translateY(-3px) rotate(-8deg) scale(1.08); }
+.approach h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.approach p { margin: 0; font-size: 0.98rem; opacity: 0.85; }
+
+/* Cards fade up one after another as the section scrolls into view (script.js adds .is-in) */
+@media (prefers-reduced-motion: no-preference) {
+  .approach.is-ready li { opacity: 0; transform: translateY(26px); }
+  .approach.is-ready.is-in li { opacity: 1; transform: none; transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out), box-shadow 0.5s var(--ease-out); }
+  .approach.is-ready.is-in li:nth-child(2) { transition-delay: 0.1s; }
+  .approach.is-ready.is-in li:nth-child(3) { transition-delay: 0.2s; }
+  .approach.is-ready.is-in li:nth-child(4) { transition-delay: 0.3s; }
+  .approach.is-ready.is-in li:hover { transform: translateY(-8px); transition-delay: 0s; }
+}
+.approach__note { margin: 32px 0 0; max-width: 62ch; color: var(--ink-soft); }
+@media (max-width: 1080px) { .approach { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .approach { grid-template-columns: 1fr; } }
+
 /* How we'll work */
 .subhead { font-size: clamp(1.4rem, 2.4vw, 1.8rem); margin-bottom: 8px; }
 .sub-intro { color: var(--ink-soft); max-width: 62ch; }
@@ -592,6 +627,9 @@ summary:hover .toggle { background: color-mix(in srgb, currentColor 12%, transpa
   text-transform: uppercase;
 }
 .plan__note { margin: -4px 0 14px; font-size: 0.95rem; font-weight: 500; }
+/* Approximate local-currency prices (script.js) */
+.plan__local { margin: -6px 0 12px; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
+.plans__fx { margin: 28px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
 .plan__meta { list-style: none; padding: 0; margin: 0 0 22px; font-weight: 700; font-size: 0.95rem; line-height: 1.45; }
 .plan__meta li { display: inline; }
 .plan__meta li + li::before {

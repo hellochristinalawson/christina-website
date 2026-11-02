@@ -166,4 +166,86 @@ if (plans) {
   window.addEventListener("resize", level);
 }
 
+// How we'll work: the cards fade up in turn when they scroll into view
+(() => {
+  const approach = document.querySelector(".approach");
+  if (!approach || !("IntersectionObserver" in window)) return;
+  approach.classList.add("is-ready");
+  const watch = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
+      approach.classList.add("is-in");
+      watch.disconnect();
+    },
+    { threshold: 0.25 }
+  );
+  watch.observe(approach);
+})();
+
+// Pricing: show approximate prices in the visitor's own currency under the GBP prices.
+// Rates are the European Central Bank's daily reference rates via the free Frankfurter API.
+(() => {
+  const prices = [...document.querySelectorAll(".plan__price[data-gbp]")];
+  if (!prices.length) return;
+
+  // Where the visitor is, from their time zone first (closest to location), then their language setting
+  const zoneCurrency = (zone) => {
+    if (/^Europe\/(London|Belfast|Guernsey|Isle_of_Man|Jersey)$/.test(zone)) return "GBP";
+    if (/^Australia\//.test(zone)) return "AUD";
+    if (/^Pacific\/(Auckland|Chatham)$/.test(zone)) return "NZD";
+    if (/^Europe\/(Lisbon|Madrid|Paris|Berlin|Amsterdam|Brussels|Rome|Vienna|Dublin|Helsinki|Athens|Luxembourg|Tallinn|Riga|Vilnius|Bratislava|Ljubljana|Zagreb|Valletta|Monaco)$|^Atlantic\/(Madeira|Azores|Canary)$|^Asia\/Nicosia$/.test(zone)) return "EUR";
+    const exact = {
+      "Europe/Zurich": "CHF", "Europe/Stockholm": "SEK", "Europe/Oslo": "NOK", "Europe/Copenhagen": "DKK",
+      "Europe/Warsaw": "PLN", "Europe/Prague": "CZK", "Europe/Budapest": "HUF", "Europe/Bucharest": "RON",
+      "Atlantic/Reykjavik": "ISK", "Europe/Istanbul": "TRY", "Asia/Singapore": "SGD", "Asia/Hong_Kong": "HKD",
+      "Asia/Tokyo": "JPY", "Asia/Seoul": "KRW", "Asia/Kolkata": "INR", "Asia/Shanghai": "CNY",
+      "Asia/Kuala_Lumpur": "MYR", "Asia/Manila": "PHP", "Asia/Bangkok": "THB", "Asia/Jakarta": "IDR",
+      "Asia/Jerusalem": "ILS", "Africa/Johannesburg": "ZAR", "America/Sao_Paulo": "BRL", "America/Mexico_City": "MXN",
+    };
+    if (exact[zone]) return exact[zone];
+    if (/^America\/(Toronto|Vancouver|Montreal|Edmonton|Winnipeg|Halifax|Regina|St_Johns)$/.test(zone)) return "CAD";
+    if (/^America\/(New_York|Chicago|Denver|Los_Angeles|Phoenix|Anchorage|Detroit|Boise|Indiana\/.+|Kentucky\/.+)$|^Pacific\/Honolulu$/.test(zone)) return "USD";
+    return null;
+  };
+  const regionCurrency = {
+    GB: "GBP", AU: "AUD", NZ: "NZD", US: "USD", CA: "CAD", IE: "EUR", PT: "EUR", ES: "EUR", FR: "EUR", DE: "EUR",
+    NL: "EUR", BE: "EUR", IT: "EUR", AT: "EUR", FI: "EUR", GR: "EUR", CH: "CHF", SE: "SEK", NO: "NOK", DK: "DKK",
+    PL: "PLN", SG: "SGD", HK: "HKD", JP: "JPY", IN: "INR", ZA: "ZAR",
+  };
+  const locale = navigator.language || "en-GB";
+  let currency = null;
+  try { currency = zoneCurrency(Intl.DateTimeFormat().resolvedOptions().timeZone || ""); } catch {}
+  if (!currency) {
+    try { currency = regionCurrency[new Intl.Locale(locale).maximize().region]; } catch {}
+  }
+  if (!currency || currency === "GBP") return;
+
+  // Round up to the next whole number ending in 5 or 9, e.g. 47.3 -> 49, 50.2 -> 55
+  const friendly = (amount) => {
+    let n = Math.ceil(amount);
+    while (n % 10 !== 5 && n % 10 !== 9) n++;
+    return n;
+  };
+  const money = (n) =>
+    new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: 0 }).format(n);
+
+  fetch(`https://api.frankfurter.dev/v1/latest?base=GBP&symbols=${currency}`)
+    .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
+    .then(({ rates }) => {
+      const rate = rates && rates[currency];
+      if (!rate) return;
+      prices.forEach((price) => {
+        const slot = price.nextElementSibling;
+        if (!slot || !slot.classList.contains("plan__local")) return;
+        const now = money(friendly(price.dataset.gbp * rate));
+        const then = price.dataset.gbpThen ? `, then ${money(friendly(price.dataset.gbpThen * rate))}` : "";
+        slot.textContent = `approx ${now}${then}`;
+        slot.hidden = false;
+      });
+      const note = document.querySelector(".plans__fx");
+      if (note) note.hidden = false;
+    })
+    .catch(() => {}); // No rates, no local line: the GBP prices still stand on their own
+})();
+
 document.getElementById("year").textContent = new Date().getFullYear();
