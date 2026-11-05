@@ -159,8 +159,9 @@ p:last-child { margin-bottom: 0; }
 
 /* Hero: photograph with the stickers on it */
 .pc { position: relative; justify-self: center; padding: 28px 0; max-width: 100%; }
-.pc { width: 100%; }
-.pc .hp-photo { height: auto; width: min(100%, calc((100svh - 200px) * 0.75)); aspect-ratio: 3 / 4; margin-inline: auto; }
+/* The box is exactly the photo's width, so the checklist can sit flush with its right edge */
+.pc { width: min(100%, calc((100svh - 200px) * 0.75)); }
+.pc .hp-photo { height: auto; width: 100%; aspect-ratio: 3 / 4; }
 /* The "typical Tuesday" stickers stick on around the laptop and drift. Then .pc gets .is-done:
    one by one they slide into a level checklist, each turned into a positive. */
 .hp-note {
@@ -183,8 +184,10 @@ p:last-child { margin-bottom: 0; }
 .hp-note--butter { background: var(--butter); }
 .hp-note--tomato { background: var(--tomato); color: #fff; }
 .hp-note--roast { background: var(--roast); color: var(--oat); }
-.pc.is-done .hp-note { --x: 64%; --y: calc(50% + var(--k) * 7%); width: 36%; max-width: none; height: 34px; overflow: hidden; align-content: center; transform: none; animation: none; background: var(--paper); color: var(--ink); }
+.pc.is-done .hp-note { --w: 36%; --x: calc(100% - var(--w)); --y: calc(50% + var(--k) * 7%); width: var(--w); border-radius: 10px 0 0 10px; max-width: none; height: 34px; overflow: hidden; align-content: center; transform: none; animation: none; }
 .pc.is-done .hp-note__mess { opacity: 0; }
+/* Rows keep their sticker colour; on the orange one the tick circle turns white */
+.hp-note--tomato .hp-note__tidy i { background: #fff; color: var(--tomato); }
 .pc.is-done .hp-note__tidy { opacity: 1; transition-delay: calc(var(--k) * 0.14s + 0.45s); }
 @media (prefers-reduced-motion: reduce) { .hp-note { animation: none; } }
 /* A tight cluster on and around the laptop (bottom right of the photo), clear of the face */
@@ -200,7 +203,7 @@ p:last-child { margin-bottom: 0; }
   .hp-note--1 { --x: 77%; }
   .hp-note--4 { --x: 50%; --y: 80%; }
   .hp-note--7 { --y: 88%; }
-  .pc.is-done .hp-note { --x: 63%; width: 39%; }
+  .pc.is-done .hp-note { --w: 39%; }
 }
 @media (max-width: 600px) {
   /* All six stay on phones: smaller, spread over the lower half of the photo */
@@ -213,13 +216,13 @@ p:last-child { margin-bottom: 0; }
   .hp-note--5 { --x: 50%; --y: 71%; }
   .hp-note--4 { --x: 10%; --y: 78%; }
   .hp-note--7 { --x: 56%; --y: 84%; }
-  .pc.is-done .hp-note { --x: 51%; --y: calc(49% + var(--k) * 7.6%); width: 45%; height: 28px; }
+  .pc.is-done .hp-note { --w: 45%; --y: calc(49% + var(--k) * 7.6%); height: 28px; border-radius: 8px 0 0 8px; }
   .hp-note__tidy { gap: 6px; }
   .hp-note__tidy i { width: 17px; height: 17px; }
   .hp-note__tidy svg { width: 10px; height: 10px; }
 }
 @media (max-width: 960px) {
-  .pc { padding: 24px 0; justify-self: stretch; min-width: 0; }
+  .pc { padding: 24px 0; justify-self: start; min-width: 0; width: 100%; max-width: 460px; }
   .pc .hp-photo { height: auto; width: 100%; }
 }
 
