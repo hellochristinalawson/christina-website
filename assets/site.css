@@ -99,8 +99,11 @@ p:last-child { margin-bottom: 0; }
 .header__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 74px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 400 1.55rem/1 var(--serif); letter-spacing: -0.01em; white-space: nowrap; }
 .logo em { color: var(--tomato); }
-.logo svg { width: 28px; height: 28px; flex: none; transition: transform 0.8s var(--ease); }
-.logo:hover svg { transform: rotate(-360deg); }
+.logo svg { width: 28px; height: 28px; flex: none; }
+/* On hover the shorter bars slide out to full length, so the stack lines up */
+.logo svg rect + rect { transform-box: fill-box; transform-origin: left; transition: transform 0.6s var(--ease); }
+.logo:hover svg rect:nth-child(3) { transform: scaleX(1.385); }
+.logo:hover svg rect:nth-child(4) { transform: scaleX(1.125); }
 .nav { display: flex; align-items: center; gap: 6px; }
 .nav a:not(.btn) { text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 9px 14px; border-radius: 99px; transition: background 0.2s; }
 .nav a:not(.btn):hover { background: rgba(42, 26, 20, 0.06); }
@@ -343,6 +346,7 @@ p:last-child { margin-bottom: 0; }
 .footer__top { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 0.6fr)); gap: 40px; padding-bottom: 56px; }
 .footer .logo { font-size: 2rem; }
 .footer .logo em { color: var(--tomato-bright); }
+.footer .logo svg rect:first-child { fill: var(--roast); }
 .footer__line { font: 400 1.4rem/1.25 var(--serif); margin-top: 20px; max-width: 24ch; color: rgba(246, 241, 231, 0.8); }
 .footer h2 { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; color: rgba(246, 241, 231, 0.55); }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
