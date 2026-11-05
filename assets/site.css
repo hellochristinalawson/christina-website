@@ -203,11 +203,20 @@ p:last-child { margin-bottom: 0; }
   .pc.is-done .hp-note { --x: 63%; width: 39%; }
 }
 @media (max-width: 600px) {
-  .hp-note--2, .hp-note--4, .hp-note--5, .hp-note--6 { display: none; }
-  .hp-note { max-width: 42%; }
-  .hp-note--1 { --x: 58%; --y: 68%; } .hp-note--7 { --x: 54%; --y: 78%; }
-  .pc.is-done .hp-note { --x: 62%; width: 41%; }
-  .pc.is-done .hp-note--7 { --y: 68%; } .pc.is-done .hp-note--1 { --y: 76%; }
+  /* All six stay on phones: smaller, spread over the lower half of the photo */
+  .hp-note { max-width: 46%; padding: 4px 8px 5px; border-radius: 8px; }
+  .hp-note .label { font-size: 0.48rem; }
+  .hp-note b { font-size: 0.64rem; }
+  .hp-note--2 { --x: 53%; --y: 53%; }
+  .hp-note--1 { --x: 58%; --y: 61.5%; }
+  .hp-note--6 { --x: 6%; --y: 64%; }
+  .hp-note--5 { --x: 50%; --y: 71%; }
+  .hp-note--4 { --x: 10%; --y: 78%; }
+  .hp-note--7 { --x: 56%; --y: 84%; }
+  .pc.is-done .hp-note { --x: 51%; --y: calc(49% + var(--k) * 7.6%); width: 45%; height: 28px; }
+  .hp-note__tidy { gap: 6px; }
+  .hp-note__tidy i { width: 17px; height: 17px; }
+  .hp-note__tidy svg { width: 10px; height: 10px; }
 }
 @media (max-width: 960px) {
   .pc { padding: 24px 0; justify-self: stretch; min-width: 0; }
