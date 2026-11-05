@@ -285,6 +285,7 @@ p:last-child { margin-bottom: 0; }
 .offer .offer__tag { font-weight: 600; color: inherit; }
 .offer .link-arrow { align-self: flex-start; margin-top: auto; padding-top: 8px; }
 .offer--sky { background: var(--sky); border-color: var(--sky); }
+.offer--butter { background: var(--butter); border-color: var(--butter); }
 .offer--tomato { background: var(--tomato); color: #fff; border-color: var(--tomato); }
 .offer--roast { background: var(--roast); color: var(--oat); border-color: var(--roast); }
 .offer--tomato p:not(.offer__tag) { color: rgba(255, 255, 255, 0.82); }
@@ -380,6 +381,21 @@ p:last-child { margin-bottom: 0; }
 /* Services: an overview of the three, then one section each with the same layout */
 .svc-overview__title { margin: clamp(48px, 6vw, 80px) 0 22px; font: 400 clamp(1.8rem, 2.8vw, 2.4rem)/1.05 var(--serif); }
 .svc-overview__title em { font-style: italic; color: var(--tomato); }
+/* Overview cards share one grid, so every card's rows line up and the cards end level */
+.svc-overview .offer { display: grid; grid-template-rows: subgrid; grid-row: span 8; gap: 0; align-content: start; }
+.svc-overview .offer .label { margin-top: 18px; }
+.svc-overview .offer h3 { margin-top: 14px; }
+.svc-overview .offer .offer__tag { margin-top: 10px; }
+.offer__rows { display: contents; }
+.offer__rows div:first-child { margin-top: 22px; }
+.offer__rows div:last-child { margin-bottom: 6px; }
+.offer__rows div { padding: 12px 0; border-top: 1px solid rgba(42, 26, 20, 0.14); }
+.offer__rows dt { font: 500 0.68rem/1.5 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.65; }
+.offer__rows dd { margin: 2px 0 0; font-size: 0.95rem; line-height: 1.45; }
+.offer--tomato .offer__rows div { border-color: rgba(255, 255, 255, 0.28); }
+.offer--roast .offer__rows div { border-color: rgba(246, 241, 231, 0.18); }
+.offer--tomato .offer__rows dd { color: rgba(255, 255, 255, 0.9); }
+.offer--roast .offer__rows dd { color: rgba(246, 241, 231, 0.82); }
 .svc { scroll-margin-top: 90px; }
 .svc__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(36px, 6vw, 96px); align-items: center; }
 .svc__intro .h2 { margin: 14px 0 10px; }
@@ -406,8 +422,11 @@ p:last-child { margin-bottom: 0; }
 /* What you get: a coloured card */
 .svc__get { padding: 24px 26px 26px; border-radius: var(--radius); background: var(--sky); }
 .svc__get .svc__h { border-color: rgba(42, 26, 20, 0.15); }
-#audit .svc__get { background: var(--roast); color: var(--oat); }
-#audit .svc__get .svc__h { border-color: rgba(246, 241, 231, 0.2); }
+/* Each service's "what you get" card takes the colour of its overview card */
+#audit .svc__get { background: var(--butter); }
+#reset .svc__get { background: var(--tomato); color: #fff; }
+#reset .svc__get .svc__h { border-color: rgba(255, 255, 255, 0.3); }
+#reset .svc__get .checks li::before { background-color: var(--roast); }
 .svc__get .checks { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
 .section--roast .svc__get { background: var(--tomato); color: #fff; }
 .section--roast .svc__get .svc__h { border-color: rgba(255, 255, 255, 0.3); }
@@ -443,7 +462,7 @@ p:last-child { margin-bottom: 0; }
 /* Compact spacing so each service fits on one laptop screen */
 .section.svc { padding: clamp(48px, 5.5vw, 76px) 0; }
 .svc .svc__num { font-size: clamp(3.2rem, 5vw, 4.4rem); margin-bottom: 12px; }
-.svc .svc__intro .h2 { font-size: clamp(2.2rem, 3.8vw, 3.4rem); margin: 10px 0 8px; }
+.svc .svc__intro .h2 { font-size: clamp(2.2rem, 3.8vw, 3.4rem); margin: 10px 0 18px; }
 .svc .svc__tag { font-size: 1.3rem; margin-bottom: 14px; }
 .svc .svc__intro > p:not(.label):not(.svc__tag) { margin-bottom: 20px; }
 .svc .facts { margin-bottom: 22px; }
@@ -603,7 +622,31 @@ p:last-child { margin-bottom: 0; }
 .pick input:focus-visible + span { outline: 2px solid var(--tomato); outline-offset: 2px; }
 .form__small { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 960px) { .contact { grid-template-columns: 1fr; } }
+.call-card--main { margin-top: 0; padding: clamp(28px, 4vw, 44px); gap: 18px; }
+.call-card--main .h3 { font-size: clamp(2.2rem, 3.6vw, 3rem); }
+.contact__copy .maybes-text { margin: 0 0 18px; }
+.call-steps { list-style: none; margin: 4px 0 8px; padding: 0; display: grid; gap: 10px; counter-reset: step; }
+.call-steps li { counter-increment: step; display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid rgba(246, 241, 231, 0.16); }
+.call-steps li::before { content: "0" counter(step); font: 500 0.74rem/1.6 var(--mono); color: var(--tomato-bright); }
+.call-steps b { font-weight: 500; }
+.email-block { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 80px); align-items: end; }
+.email-block .h2 { margin-top: 12px; }
+.email-block p { margin: 0 0 20px; max-width: 46ch; color: var(--ink-soft); font-size: 1.05rem; }
+/* Pre-call questions page */
+.prep { display: grid; gap: clamp(32px, 4vw, 48px); max-width: 860px; }
+.prep__head .lead { max-width: 56ch; margin-top: 22px; }
+.prep__again { margin: 14px 0 0; font-size: 0.95rem; color: var(--ink-soft); }
+.prep__again a { color: var(--tomato); }
+.field > label { text-transform: none; letter-spacing: 0; font: 500 1.05rem/1.35 var(--sans); }
+.prep__form .field legend { text-transform: none; letter-spacing: 0; font: 500 1.05rem/1.35 var(--sans); margin-bottom: 10px; }
+.pick--grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pick--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pick--grid label, .pick--grid span { display: block; height: 100%; }
+.pick--grid span { display: grid; place-items: center; text-align: center; border-radius: 14px; padding: 14px 10px; }
+.pick--grid input:checked + span { background: var(--tomato); border-color: var(--tomato); color: #fff; }
+.prep__send { justify-self: stretch; justify-content: center; padding-block: 18px; font-size: 1.05rem; }
+@media (max-width: 960px) { .contact, .email-block { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .pick--grid, .pick--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .form__row { grid-template-columns: 1fr; } }
 
 /* Draft banner */

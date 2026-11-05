@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=12">
+<link rel="stylesheet" href="assets/site.css?v=21">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -28,56 +28,39 @@
   </div>
 </header>
 <main id="main">
-<section class="page-hero" style="padding-bottom:clamp(80px, 10vw, 140px)">
+<section class="page-hero" style="padding-bottom:clamp(64px, 8vw, 110px)">
   <div class="wrap contact">
     <div class="contact__copy">
       <p class="label">Let's talk</p>
       <h1 class="display" style="font-size:clamp(3rem, 6.6vw, 6rem);margin-bottom:30px">Tell me what's going on in your <em>studio.</em></h1>
-      <ul class="maybes">
-        <li class="reveal">Maybe your resource planning has become a guessing game.</li>
-        <li class="reveal" style="--d:.08s">Maybe projects are getting stuck between teams.</li>
-        <li class="reveal" style="--d:.16s">Or maybe your agency has grown, and the way you've always worked isn't quite keeping up.</li>
-      </ul>
+      <p class="maybes-text">Maybe your resource planning has become a guessing game. Maybe projects are getting stuck between teams. Or maybe your agency has grown, and the way you've always worked isn't quite keeping up.</p>
       <p>Whatever the challenge, I'd love to hear about it.</p>
-      <div class="call-card">
-        <p class="label" style="color:var(--butter)">Free · 20 minutes</p>
-        <h2 class="h3">Book a <em>discovery call</em></h2>
-        <p>We'll chat about how your studio works, what's causing friction and whether The Creative Reset could help. No lengthy presentations. No obligation. Just a conversation about making work work better.</p>
-        <div><a class="btn btn--primary" href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener">Book a Discovery Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </div>
     </div>
 
-    <form class="form" data-to="hello@christinalawson.com">
-      <div>
-        <p class="label muted" style="margin-bottom:10px">Prefer email?</p>
-        <h2>Get in touch directly</h2>
-      </div>
-      <div class="form__row">
-        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name"></div>
-        <div class="field"><label for="f-agency">Agency name</label><input id="f-agency" name="agency" type="text" autocomplete="organization"></div>
-      </div>
-      <fieldset class="field">
-        <legend>Creative team size</legend>
-        <div class="pick">
-          <label><input type="radio" name="size" value="1–10"><span>1–10</span></label>
-          <label><input type="radio" name="size" value="10–25"><span>10–25</span></label>
-          <label><input type="radio" name="size" value="25–50"><span>25–50</span></label>
-          <label><input type="radio" name="size" value="50+"><span>50+</span></label>
-        </div>
-      </fieldset>
-      <div class="field"><label for="f-headache">Your biggest operational headache</label><textarea id="f-headache" name="headache" placeholder="Resourcing, approvals, briefs, a team that's outgrown its processes…"></textarea></div>
-      <fieldset class="field">
-        <legend>What kind of support?</legend>
-        <div class="pick">
-          <label><input type="radio" name="support" value="The Workflow Audit"><span>Workflow Audit</span></label>
-          <label><input type="radio" name="support" value="The Creative Reset"><span>Creative Reset</span></label>
-          <label><input type="radio" name="support" value="Ongoing support"><span>Ongoing support</span></label>
-          <label><input type="radio" name="support" value="Not sure yet"><span>Not sure yet</span></label>
-        </div>
-      </fieldset>
-      <div class="btn-row"><button class="btn btn--dark" type="submit">Send enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-      <p class="form__small">This opens your email app with everything filled in. Or write to me at <a href="mailto:hello@christinalawson.com">hello@christinalawson.com</a>.</p>
-    </form>
+    <div class="call-card call-card--main">
+      <p class="label" style="color:var(--butter)">Free · 20 minutes</p>
+      <h2 class="h3">Book a <em>discovery call</em></h2>
+      <p>We'll chat about how your studio works, what's causing friction and whether I can help. No presentations, no obligation.</p>
+      <ol class="call-steps">
+        <li><b>Pick a time</b></li>
+        <li><b>Answer a few questions</b></li>
+        <li><b>We talk</b></li>
+      </ol>
+      <div><a class="btn btn--primary" href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener">Book a Discovery Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--compact section--paper">
+  <div class="wrap email-block">
+    <div>
+      <p class="label">Prefer email?</p>
+      <h2 class="h2">Write to me <em>directly</em></h2>
+    </div>
+    <div>
+      <p>Not ready for a call? Send me a note about what's going on and I'll get back to you.</p>
+      <a class="btn" href="mailto:hello@christinalawson.com">hello@christinalawson.com</a>
+    </div>
   </div>
 </section>
 </main>
@@ -101,6 +84,6 @@
     <div class="footer__base"><span>© <span data-year>2026</span> The Creative Reset</span><span>Creative operations for independent agencies · Working globally</span></div>
   </div>
 </footer>
-<script src="assets/site.js?v=12"></script>
+<script src="assets/site.js?v=21"></script>
 </body>
 </html>

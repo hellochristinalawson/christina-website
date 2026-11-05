@@ -64,24 +64,25 @@ if (filters) {
   });
 }
 
-// Contact: no form service yet, so the enquiry opens as a ready-written email
-const form = document.querySelector(".form");
-if (form) {
+// Booking a call opens the calendar in a new tab and moves this tab on to the pre-call questions
+document.querySelectorAll('a[href^="https://calendar.app.google"]').forEach((a) => {
+  if (location.pathname.endsWith("discovery-call.html")) return;
+  a.addEventListener("click", (e) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    setTimeout(() => (window.location.href = "discovery-call.html"), 300);
+  });
+});
+
+// Forms: no form service yet, so answers open as a ready-written email
+document.querySelectorAll("form[data-to]").forEach((form) => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    const lines = [
-      `Name: ${data.get("name") || ""}`,
-      `Agency: ${data.get("agency") || ""}`,
-      `Creative team size: ${data.get("size") || ""}`,
-      `Support I'm interested in: ${data.get("support") || ""}`,
-      "",
-      "What's going on in our studio:",
-      data.get("headache") || "",
-    ];
-    const subject = `Studio enquiry${data.get("agency") ? " from " + data.get("agency") : ""}`;
-    window.location.href = `mailto:${form.dataset.to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    const lines = [...new Set(data.keys())].map((k) => `${k}: ${data.getAll(k).join(", ")}`);
+    const who = data.get("Agency") || data.get("Name");
+    const subject = `${form.dataset.subject || "Enquiry"}${who ? " from " + who : ""}`;
+    window.location.href = `mailto:${form.dataset.to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n\n"))}`;
   });
-}
+});
 
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
