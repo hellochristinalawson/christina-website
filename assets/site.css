@@ -310,6 +310,12 @@ p:last-child { margin-bottom: 0; }
 .section--butter .timeline li:last-child::before { background: var(--tomato); }
 .section--butter .timeline .label { color: var(--tomato); }
 .section--butter .timeline p { color: var(--ink-soft); }
+.section--sky .timeline::before { background: var(--tomato); }
+.section--sky .timeline li::before { background: var(--sky); border-color: var(--tomato); }
+.section--sky .timeline li:last-child::before { background: var(--tomato); }
+.section--sky .timeline .label { color: var(--tomato); }
+.section--sky .timeline p { color: var(--ink-soft); }
+.process__note { margin: 14px 0 0; max-width: 52ch; color: var(--ink-soft); font-size: 1.05rem; }
 
 /* Meet Christina */
 .hp-split { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(36px, 6vw, 96px); align-items: start; }
