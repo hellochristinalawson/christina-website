@@ -633,10 +633,14 @@ p:last-child { margin-bottom: 0; }
 .email-block .h2 { margin-top: 12px; }
 .email-block p { margin: 0 0 20px; max-width: 46ch; color: var(--ink-soft); font-size: 1.05rem; }
 /* Pre-call questions page */
-.prep { display: grid; gap: clamp(32px, 4vw, 48px); max-width: 860px; }
+.prep { display: grid; gap: clamp(32px, 4vw, 48px); max-width: 1040px; }
 .prep__head .lead { max-width: 56ch; margin-top: 22px; }
-.prep__again { margin: 14px 0 0; font-size: 0.95rem; color: var(--ink-soft); }
-.prep__again a { color: var(--tomato); }
+.prep__h { display: flex; align-items: baseline; gap: 14px; font: 400 clamp(1.8rem, 3vw, 2.4rem)/1.1 var(--serif); margin: 0 0 -12px; }
+.prep__h span { font: 500 0.8rem/1 var(--mono); color: var(--tomato); }
+.prep__cal { min-height: 560px; padding: clamp(8px, 2vw, 20px); border-radius: 28px; background: var(--paper); }
+.prep__fallback { margin: 0; padding: 24px; color: var(--ink-soft); }
+.prep__fallback a { color: var(--tomato); }
+.prep__cal:has(iframe) .prep__fallback { display: none; }
 .field > label { text-transform: none; letter-spacing: 0; font: 500 1.05rem/1.35 var(--sans); }
 .prep__form .field legend { text-transform: none; letter-spacing: 0; font: 500 1.05rem/1.35 var(--sans); margin-bottom: 10px; }
 .pick--grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -644,6 +648,9 @@ p:last-child { margin-bottom: 0; }
 .pick--grid label, .pick--grid span { display: block; height: 100%; }
 .pick--grid span { display: grid; place-items: center; text-align: center; border-radius: 14px; padding: 14px 10px; }
 .pick--grid input:checked + span { background: var(--tomato); border-color: var(--tomato); color: #fff; }
+.form__done { display: grid; gap: 14px; padding: 12px 0; }
+.form__done h2 em { color: var(--tomato); }
+.form__done p:last-child { margin: 0; color: var(--ink-soft); }
 .prep__send { justify-self: stretch; justify-content: center; padding-block: 18px; font-size: 1.05rem; }
 @media (max-width: 960px) { .contact, .email-block { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { .pick--grid, .pick--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

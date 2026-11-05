@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=21">
+<link rel="stylesheet" href="assets/site.css?v=26">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -23,7 +23,7 @@
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="insights.html">Insights</a><a href="contact.html" aria-current="page">Let's Talk</a>
-      <a class="btn btn--primary" href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener">Book a Discovery Call</a>
+      <a class="btn btn--primary" href="discovery-call.html">Book a Discovery Call</a>
     </nav>
   </div>
 </header>
@@ -31,74 +31,31 @@
 <section class="page-hero">
   <div class="wrap prep">
     <div class="prep__head">
-      <p class="label">Your discovery call</p>
-      <h1 class="display" style="font-size:clamp(2.8rem, 6vw, 5rem)">A few questions before we <em>talk.</em></h1>
-      <p class="lead">My calendar has opened in a new tab. Once you've picked a time, answer these so we can make the most of our 20 minutes. It takes about two minutes.</p>
-      <p class="prep__again">Calendar didn't open? <a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener">Book your time here</a>.</p>
+      <p class="label">Free · 20 minutes</p>
+      <h1 class="display" style="font-size:clamp(2.8rem, 6vw, 5rem)">Book your discovery <em>call.</em></h1>
+      <p class="lead">Pick a time that suits you, then answer a few quick questions so we can make the most of our 20 minutes.</p>
     </div>
-
-    <form class="form prep__form" data-to="hello@christinalawson.com" data-subject="Discovery call answers">
-      <div class="form__row">
-        <div class="field"><label for="q-name">Your name *</label><input id="q-name" name="Name" type="text" autocomplete="name" required></div>
-        <div class="field"><label for="q-email">Email *</label><input id="q-email" name="Email" type="email" autocomplete="email" required></div>
-      </div>
-      <div class="field"><label for="q-agency">Agency name *</label><input id="q-agency" name="Agency" type="text" autocomplete="organization" required></div>
-      <fieldset class="field">
-        <legend>Team size *</legend>
-        <div class="pick pick--grid">
-          <label><input type="radio" name="Team size" value="1–5 people" required><span>1–5 people</span></label>
-          <label><input type="radio" name="Team size" value="6–15 people"><span>6–15 people</span></label>
-          <label><input type="radio" name="Team size" value="16–50 people"><span>16–50 people</span></label>
-          <label><input type="radio" name="Team size" value="50+ people"><span>50+ people</span></label>
-        </div>
-      </fieldset>
-      <div class="field">
-        <label for="q-bottleneck">What's the #1 bottleneck slowing your team right now? *</label>
-        <textarea id="q-bottleneck" name="Biggest bottleneck" placeholder="Be specific. What breaks down, what does it cost you, and what have you tried?" required></textarea>
-      </div>
-      <fieldset class="field">
-        <legend>Annual revenue *</legend>
-        <div class="pick pick--grid">
-          <label><input type="radio" name="Annual revenue" value="Under £100K" required><span>Under £100K</span></label>
-          <label><input type="radio" name="Annual revenue" value="£100K–£1M"><span>£100K–£1M</span></label>
-          <label><input type="radio" name="Annual revenue" value="£1M–£10M"><span>£1M–£10M</span></label>
-          <label><input type="radio" name="Annual revenue" value="£10M+"><span>£10M+</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="field">
-        <legend>Timeline to get this solved *</legend>
-        <div class="pick pick--grid">
-          <label><input type="radio" name="Timeline" value="ASAP" required><span>ASAP</span></label>
-          <label><input type="radio" name="Timeline" value="1–3 months"><span>1–3 months</span></label>
-          <label><input type="radio" name="Timeline" value="3–6 months"><span>3–6 months</span></label>
-          <label><input type="radio" name="Timeline" value="6+ months"><span>6+ months</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="field">
-        <legend>Which service interests you?</legend>
-        <div class="pick pick--grid">
-          <label><input type="radio" name="Service" value="The Clarity Call"><span>Clarity Call</span></label>
-          <label><input type="radio" name="Service" value="The Workflow Audit"><span>Workflow Audit</span></label>
-          <label><input type="radio" name="Service" value="The Creative Reset"><span>Creative Reset</span></label>
-          <label><input type="radio" name="Service" value="Not sure yet"><span>Not sure yet</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="field">
-        <legend>How did you hear about me? <span class="muted">(optional)</span></legend>
-        <div class="pick pick--grid pick--3">
-          <label><input type="radio" name="Heard about me via" value="LinkedIn"><span>LinkedIn</span></label>
-          <label><input type="radio" name="Heard about me via" value="Substack"><span>Substack</span></label>
-          <label><input type="radio" name="Heard about me via" value="Google search"><span>Google search</span></label>
-          <label><input type="radio" name="Heard about me via" value="Referral"><span>Referral</span></label>
-          <label><input type="radio" name="Heard about me via" value="Instagram"><span>Instagram</span></label>
-          <label><input type="radio" name="Heard about me via" value="Other"><span>Other</span></label>
-        </div>
-      </fieldset>
-      <button class="btn btn--primary prep__send" type="submit">Send my answers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      <p class="form__small">This opens your email app with your answers filled in, ready to send.</p>
-    </form>
+    <div class="prep__cal" id="cal-booking">
+      <p class="prep__fallback">Loading the calendar… If it doesn't appear, <a href="https://cal.com/christinalawson/discovery-call">book here instead</a>.</p>
+    </div>
   </div>
 </section>
+
+<!-- Cal.com inline booking, styled with the brand colours. Bookings go straight into Christina's Google Calendar -->
+<script>
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "discovery", { origin: "https://cal.com" });
+  Cal.ns.discovery("inline", { elementOrSelector: "#cal-booking", calLink: "christinalawson/discovery-call", config: { layout: "month_view", theme: "light" } });
+  Cal.ns.discovery("ui", {
+    theme: "light", layout: "month_view", hideEventTypeDetails: false,
+    cssVarsPerTheme: { light: {
+      "cal-brand": "#cf3d14", "cal-brand-emphasis": "#b4330f", "cal-brand-text": "#ffffff",
+      "cal-bg": "#fffcf6", "cal-bg-muted": "#f6f1e7", "cal-bg-subtle": "#f6f1e7", "cal-bg-emphasis": "#f2e6b3",
+      "cal-text": "#2a1a14", "cal-text-emphasis": "#2a1a14", "cal-text-subtle": "#6b5a52",
+      "cal-border": "rgba(42, 26, 20, 0.14)", "cal-border-subtle": "rgba(42, 26, 20, 0.1)"
+    } }
+  });
+</script>
 </main>
 <footer class="footer">
   <div class="wrap">
@@ -113,13 +70,13 @@
       </div>
       <div>
         <h2>Get in touch</h2>
-        <ul><li><a href="https://calendar.app.google/vtGY4bUcVqTiZv538" target="_blank" rel="noopener">Book a Discovery Call</a></li><li><a href="mailto:hello@christinalawson.com">hello@christinalawson.com</a></li></ul>
+        <ul><li><a href="discovery-call.html">Book a Discovery Call</a></li><li><a href="mailto:hello@christinalawson.com">hello@christinalawson.com</a></li></ul>
       </div>
     </div>
     <p class="footer__big" aria-hidden="true">The Creative Reset</p>
     <div class="footer__base"><span>© <span data-year>2026</span> The Creative Reset</span><span>Creative operations for independent agencies · Working globally</span></div>
   </div>
 </footer>
-<script src="assets/site.js?v=21"></script>
+<script src="assets/site.js?v=26"></script>
 </body>
 </html>
