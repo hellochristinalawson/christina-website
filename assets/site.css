@@ -536,6 +536,10 @@ p:last-child { margin-bottom: 0; }
 .quote--sky, .quote--butter { font: 400 clamp(1.25rem, 1.7vw, 1.45rem)/1.3 var(--serif); }
 .quote--sky { background: var(--sky); }
 .quote--butter { background: var(--butter); }
+.quote--tomato, .quote--roast { font: 400 clamp(1.08rem, 1.3vw, 1.22rem)/1.3 var(--serif); }
+.quote--tomato { background: var(--tomato); color: #fff; }
+.quote--tomato .quote__avatar { background: var(--paper); color: var(--tomato); }
+.quote--roast { background: var(--roast); color: var(--oat); }
 .quote figcaption { display: flex; align-items: center; gap: 12px; font: 400 0.9rem/1.3 var(--sans); }
 .quote figcaption b { display: block; font-weight: 600; }
 .quote__avatar { flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--tomato); color: #fff; font: 600 0.82rem/1 var(--sans); letter-spacing: 0.04em; }
@@ -681,3 +685,18 @@ p:last-child { margin-bottom: 0; }
 .section--roast .ph b { color: var(--oat); }
 .flow__ph { margin-top: 36px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* FAQs: grouped questions that open one at a time */
+.faq { display: grid; gap: clamp(40px, 5vw, 64px); max-width: 980px; }
+.faq__group { display: grid; grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); align-items: start; }
+.faq__h { font: 400 clamp(1.7rem, 2.6vw, 2.2rem)/1.05 var(--serif); margin: 0; position: sticky; top: 100px; }
+.faq__list { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; font-weight: 500; font-size: 1.08rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--oat); color: var(--tomato); font: 400 1.3rem/1 var(--sans); transition: transform 0.3s var(--ease), background-color 0.3s; }
+.faq details[open] summary::after { transform: rotate(45deg); background: var(--butter); }
+.faq summary:hover { color: var(--tomato); }
+.faq details p { margin: -4px 0 22px; max-width: 62ch; color: var(--ink-soft); }
+.faq details a { color: var(--tomato); }
+@media (max-width: 760px) { .faq__group { grid-template-columns: 1fr; } .faq__h { position: static; } }
