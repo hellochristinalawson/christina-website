@@ -388,9 +388,8 @@ p:last-child { margin-bottom: 0; }
 .svc-overview__title { margin: clamp(48px, 6vw, 80px) 0 22px; font: 400 clamp(1.8rem, 2.8vw, 2.4rem)/1.05 var(--serif); }
 .svc-overview__title em { font-style: italic; color: var(--tomato); }
 /* Overview cards share one grid, so every card's rows line up and the cards end level */
-.svc-overview .offer { display: grid; grid-template-rows: subgrid; grid-row: span 8; gap: 0; align-content: start; }
-.svc-overview .offer .label { margin-top: 18px; }
-.svc-overview .offer h3 { margin-top: 14px; }
+.svc-overview .offer { display: grid; grid-template-rows: subgrid; grid-row: span 7; gap: 0; align-content: start; }
+.svc-overview .offer h3 { margin-top: 20px; }
 .svc-overview .offer .offer__tag { margin-top: 10px; }
 .offer__rows { display: contents; }
 .offer__rows div:first-child { margin-top: 22px; }
@@ -700,3 +699,23 @@ p:last-child { margin-bottom: 0; }
 .faq details p { margin: -4px 0 22px; max-width: 62ch; color: var(--ink-soft); }
 .faq details a { color: var(--tomato); }
 @media (max-width: 760px) { .faq__group { grid-template-columns: 1fr; } .faq__h { position: static; } }
+
+/* Service blocks: on the right, a white box of steps and a coloured box of deliverables.
+   Both columns stretch to the same height, so the boxes line up with the text on the left. */
+.svc__intro .h2 { margin-top: 0; }
+.svc .svc__grid { align-items: stretch; }
+.svc .svc__intro { display: flex; flex-direction: column; align-items: flex-start; }
+.svc .svc__intro .btn { margin-top: auto; }
+.svc .svc__intro .facts { align-self: stretch; }
+.svc .svc__lists { display: flex; flex-direction: column; gap: 14px; }
+.svc .svc__lists > * { flex: 1; }
+.svc__box, .svc .svc__get { padding: clamp(18px, 2.2vw, 24px); border-radius: var(--radius); }
+/* The steps box takes the opposite of the section background: eggshell on white, white on eggshell */
+.svc__box { background: var(--paper); }
+.section--paper .svc__box { background: var(--oat); }
+#clarity .svc__get { background: var(--sky); }
+.svc .svc__box .tiles { gap: 14px 24px; }
+.svc .svc__box .tiles li { padding: 0; background: none; box-shadow: none; transform: none; }
+.svc .svc__box .tiles i { background: var(--oat); }
+.section--paper .svc__box .tiles i { background: var(--paper); }
+.svc .svc__get .checks { gap: 10px; }
