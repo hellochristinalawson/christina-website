@@ -536,7 +536,7 @@ p:last-child { margin-bottom: 0; }
 .quote--sky, .quote--butter { font: 400 clamp(1.25rem, 1.7vw, 1.45rem)/1.3 var(--serif); }
 .quote--sky { background: var(--sky); }
 .quote--butter { background: var(--butter); }
-.quote--tomato, .quote--roast { font: 400 clamp(1.08rem, 1.3vw, 1.22rem)/1.3 var(--serif); }
+.quote--tomato, .quote--roast { font: 400 clamp(1.25rem, 1.7vw, 1.45rem)/1.3 var(--serif); }
 .quote--tomato { background: var(--tomato); color: #fff; }
 .quote--tomato .quote__avatar { background: var(--paper); color: var(--tomato); }
 .quote--roast { background: var(--roast); color: var(--oat); }
